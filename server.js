@@ -124,10 +124,24 @@ app.use((req, res) => {
 });
 
 // Initialize the data service and start the server
-dataService.initialize().then(() => {
-    app.listen(HTTP_PORT, () => {
-        console.log(`Server listening on port ${HTTP_PORT}`);
+dataService.initialize()
+    .then(() => {
+        if (process.env.VERCEL) {
+            // In Vercel, we don't need to listen on a port
+            console.log('Running on Vercel');
+        } else {
+            app.listen(HTTP_PORT, () => {
+                console.log(`Server listening on port ${HTTP_PORT}`);
+            });
+        }
+    })
+    .catch(error => {
+        console.error(`Failed to start server: ${error}`);
+        // Don't exit the process on error in production
+        if (!process.env.VERCEL) {
+            process.exit(1);
+        }
     });
-}).catch(error => {
-    console.error(`Failed to start server: ${error}`);
-});
+
+// Export the Express app for Vercel
+module.exports = app;
