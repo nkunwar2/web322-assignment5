@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Edit Site - National Historic Sites</title>
+</head>
+<body>
+  <%- include('partials/navbar', {page: page }) %>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="hero bg-base-200 mb-8 p-4 rounded-lg">
+      <div class="hero-content text-center">
+        <div>
+          <h1 class="text-4xl font-bold">Edit Site <%= site.site %></h1>
+          <p class="py-2">Update the details of this National Historic Site</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-base-100 p-8 rounded-lg shadow-lg">
+      <form action="/editSite" method="POST" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Site ID</span>
+            </label>
+            <input type="text" name="siteId" value="<%= site.siteId %>" class="input input-bordered bg-gray-100 cursor-not-allowed" readonly>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Site Name</span>
+            </label>
+            <input type="text" name="site" value="<%= site.site %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Image URL</span>
+            </label>
+            <input type="url" name="image" value="<%= site.image %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Date</span>
+            </label>
+            <input type="number" name="date" value="<%= site.date %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Date Type</span>
+            </label>
+            <input type="text" name="dateType" value="<%= site.dateType %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Designated Year</span>
+            </label>
+            <input type="number" name="designated" value="<%= site.designated %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Location</span>
+            </label>
+            <input type="text" name="location" value="<%= site.location %>" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Province/Territory</span>
+            </label>
+            <select name="provinceOrTerritoryCode" class="select select-bordered" required>
+              <% provincesAndTerritories.forEach(provOrTerr => { %>
+                <option <%= (site.provinceOrTerritoryCode == provOrTerr.code) ? "selected" : "" %> value="<%= provOrTerr.code %>">
+                  <%= provOrTerr.name %>
+                </option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Latitude</span>
+            </label>
+            <input type="number" name="latitude" value="<%= site.latitude %>" step="0.00000001" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Longitude</span>
+            </label>
+            <input type="number" name="longitude" value="<%= site.longitude %>" step="0.00000001" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">World Heritage Site</span>
+              <input type="checkbox" name="worldHeritageSite" <%= site.worldHeritageSite ? 'checked' : '' %> class="checkbox">
+            </label>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <textarea name="description" class="textarea textarea-bordered h-32" required><%= site.description %></textarea>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <a href="/deleteSite/<%= site.siteId %>" class="btn btn-error" onclick="return confirm('Are you sure you want to delete this site?')">Delete Site</a>
+          <div class="space-x-4">
+            <a href="/sites/<%= site.siteId %>" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Update Site</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

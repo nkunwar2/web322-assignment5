@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title><%= site.site %> - National Historic Sites</title>
+</head>
+<body>
+  <%- include('partials/navbar', {page: page }) %>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="hero bg-base-200 mb-8 p-4 rounded-lg">
+      <div class="hero-content text-center">
+        <div>
+          <h1 class="text-4xl font-bold"><%= site.site %></h1>
+          <p class="py-2"><%= site.ProvinceOrTerritory.name %>, <%= site.ProvinceOrTerritory.region %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <img src="<%= site.image %>" alt="<%= site.site %>" class="w-full h-auto rounded-lg shadow-lg" onerror="this.src='https://placehold.co/600x400?text=No+Image'">
+      </div>
+      <div class="space-y-4">
+        <div class="bg-base-100 p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Details</h2>
+          <div class="grid grid-cols-1 gap-3">
+            <div>
+              <span class="font-bold">Location:</span> <%= site.location %>
+            </div>
+            <div>
+              <span class="font-bold">Date:</span> <%= site.date %> (<%= site.dateType %>)
+            </div>
+            <div>
+              <span class="font-bold">Designated:</span> <%= site.designated %>
+            </div>
+            <div>
+              <span class="font-bold">Coordinates:</span> <%= site.latitude %>, <%= site.longitude %>
+            </div>
+            <div>
+              <span class="font-bold">Province/Territory:</span> <%= site.ProvinceOrTerritory.name %> (<%= site.ProvinceOrTerritory.type %>)
+            </div>
+            <div>
+              <span class="font-bold">Region:</span> <%= site.ProvinceOrTerritory.region %>
+            </div>
+            <div>
+              <span class="font-bold">Is World Heritage Site:</span> <%= site.worldHeritageSite ? 'Yes' : 'No' %>
+            </div>
+          </div>
+        </div>
+        <div class="bg-base-100 p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Description</h2>
+          <p><%= site.description %></p>
+        </div>
+        <div class="flex space-x-4 mt-6">
+          <a href="/editSite/<%= site.siteId %>" class="btn btn-success">Edit Site</a>
+          <a href="/sites" class="btn btn-primary">Back to Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>About - National Historic Sites</title>
+</head>
+<body>
+  <%- include('partials/navbar', {page: page }) %>
+
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">About</h1>
+        <p class="py-6">This application was created for WEB322 Assignment 5. It showcases National Historic Sites across Canada and allows users to view, add, edit, and delete sites from the collection.</p>
+        <p class="py-2">The application uses:</p>
+        <ul class="list-disc list-inside text-left">
+          <li>Express.js for the server</li>
+          <li>EJS for templating</li>
+          <li>Sequelize for database operations</li>
+          <li>PostgreSQL for data storage</li>
+          <li>Tailwind CSS and DaisyUI for styling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

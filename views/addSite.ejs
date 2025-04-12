@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Add Site - National Historic Sites</title>
+</head>
+<body>
+  <%- include('partials/navbar', {page: page }) %>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="hero bg-base-200 mb-8 p-4 rounded-lg">
+      <div class="hero-content text-center">
+        <div>
+          <h1 class="text-4xl font-bold">Add Site</h1>
+          <p class="py-2">Add a new National Historic Site to the collection</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-base-100 p-8 rounded-lg shadow-lg">
+      <form action="/addSite" method="POST" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Site ID</span>
+            </label>
+            <input type="text" name="siteId" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Site Name</span>
+            </label>
+            <input type="text" name="site" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Image URL</span>
+            </label>
+            <input type="url" name="image" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Date</span>
+            </label>
+            <input type="number" name="date" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Date Type</span>
+            </label>
+            <input type="text" name="dateType" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Designated Year</span>
+            </label>
+            <input type="number" name="designated" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Location</span>
+            </label>
+            <input type="text" name="location" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Province/Territory</span>
+            </label>
+            <select name="provinceOrTerritoryCode" class="select select-bordered" required>
+              <option value="" disabled selected>Select a province or territory</option>
+              <% provincesAndTerritories.forEach(provinceOrTerritory => { %>
+                <option value="<%= provinceOrTerritory.code %>">
+                  <%= provinceOrTerritory.name %>
+                </option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Latitude</span>
+            </label>
+            <input type="number" name="latitude" step="0.00000001" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Longitude</span>
+            </label>
+            <input type="number" name="longitude" step="0.00000001" class="input input-bordered" required>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">World Heritage Site</span>
+              <input type="checkbox" name="worldHeritageSite" class="checkbox">
+            </label>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <textarea name="description" class="textarea textarea-bordered h-32" required></textarea>
+        </div>
+
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Add Site</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

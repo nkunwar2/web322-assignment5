@@ -1,0 +1,54 @@
+[
+    {
+        "siteId": "AB001",
+        "site": "Abbot Pass Refuge Cabin",
+        "description": "An alpine hut located at an elevation of 2925 metres in the Alberta Rockies, near the continental divide in Banff National Park, near its boundary with Yoho National Park in British Columbia",
+        "date": 1922,
+        "dateType": "completed",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Abbot_Pass_hut.jpg",
+        "location": "Abbot Pass",
+        "latitude": 51.364056,
+        "longitude": -116.2902083,
+        "designated": 1992,
+        "provinceOrTerritoryCode": "AB"
+    },
+    {
+        "siteId": "AB002",
+        "site": "Fort Fork",
+        "description": "Starting point of Alexander MacKenzie's route to Pacific, 1793; connected with the exploration of the country, was replaced by Fort Dunvegan, another National Historic Site",
+        "date": 1792,
+        "dateType": "established",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Fort_Fork_National_historic_Site_of_Canada.JPG/320px-Fort_Fork_National_historic_Site_of_Canada.JPG",
+        "location": "Peace River",
+        "latitude": 56.1375,
+        "longitude": -117.475,
+        "designated": 1928,
+        "provinceOrTerritoryCode": "AB"
+    },
+    {
+        "siteId": "BC001",
+        "site": "223 Robert Street",
+        "description": "A good example of the Queen Anne Revival Style in domestic architecture.",
+        "date": 1905,
+        "dateType": "completed",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/223_Robert_Street%2C_Victoria%2C_British_Columbia%2C_Canada_04.jpg/320px-223_Robert_Street%2C_Victoria%2C_British_Columbia%2C_Canada_04.jpg",
+        "location": "Victoria",
+        "latitude": 48.4292278,
+        "longitude": -123.3888667,
+        "designated": 1990,
+        "provinceOrTerritoryCode": "BC"
+    },
+    {
+        "siteId": "ON001",
+        "site": "Adelaide Hunter Hoodless Homestead",
+        "description": "The childhood home of activist and organizer Adelaide Hunter Hoodless, educational reformer and co-founder of the Women's Institute, the National Council of Women of Canada and the Victorian Order of Nurses",
+        "date": 1839,
+        "dateType": "completed",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Hoodless_Homestead_NHS.jpg",
+        "location": "Brant County",
+        "latitude": 43.23694,
+        "longitude": -80.29667,
+        "designated": 1995,
+        "provinceOrTerritoryCode": "ON"
+    }
+]
